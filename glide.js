@@ -1,7 +1,7 @@
 /*!
  * glide.js
  * Author: Ryan Mitchell
- * Git: https://github.com/rmitchellnet
+ * Git: https://github.com/rmitchellnet/glide.js
  * License: MIT
  */
 
