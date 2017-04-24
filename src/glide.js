@@ -4,7 +4,6 @@
  * Git: https://github.com/rmitchellnet/glide.js
  * License: MIT
  */
-
 (function (root, factory) {
     var pluginName = 'Glide';
 
@@ -21,7 +20,6 @@
     var defaults = {
         easing: 'M0,0 C0.11,0.494 0.128,0.756 0.254,0.882 0.386,1.014 0.504,1 1,1'
     };
-
 
     /**
      * Merge defaults with user options
@@ -51,7 +49,6 @@
         // private helper code goes here
     };
 
-
     /**
      * Plugin Object
      * @param element The html element to initialize
@@ -61,17 +58,11 @@
     function Plugin(element, options) {
         this.element = document.querySelector(element);
         this.options = extend(defaults, options);
-
         this.element.style['position'] = 'fixed';
-
-        //init code goes here
-        console.log('Plugin initialized');
     }
-
 
     // Plugin prototype
     Plugin.prototype = {
-
         start: function () {
             //this.element.innerHTML = this.options.someDefaultOption;
             this.scrollLoop = requestAnimationFrame(this.start.bind(this));
@@ -85,27 +76,6 @@
         cancel: function () {
             cancelAnimationFrame(this.scrollLoop);
         }
-
     };
-
-
-    // add lightweight jQuery wrapper, if available
-    if (window.jQuery) {
-        var $ = window.jQuery;
-
-        $.fn[pluginName] = function (options) {
-            options = options || {};
-
-            return this.each(function () {
-                // add plugin to element data
-                if (!$.data(this, 'plugin_' + pluginName)) {
-                    options.element = this;
-                    $.data(this, 'plugin_' + pluginName, new Plugin(this, options));
-                }
-            });
-        };
-    }
-
-
     return Plugin;
 }));
