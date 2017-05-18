@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <script src="../src/glide.js"></script>
+    <style>
+        .container {
+            width: 100%;
+            position: relative;
+        }
+
+        .container .scrollme {
+            width: 100%;
+            background: lightblue; //transition: transform 0.8s cubic-bezier(.2,.62,.2,.94);
+        }
+
+        .container .scrollme div {
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="scrollme">
+            <div><img src="http://pipsum.com/435x310.jpg" /></div>
+            <div><img src="http://pipsum.com/435x310.jpg" /></div>
+            <div><img src="http://pipsum.com/435x310.jpg" /></div>
+            <div><img src="http://pipsum.com/435x310.jpg" /></div>
+            <div><img src="http://pipsum.com/435x310.jpg" /></div>
+            <div><img src="http://pipsum.com/435x310.jpg" /></div>
+            <div><img src="http://pipsum.com/435x310.jpg" /></div>
+            <div><img src="http://pipsum.com/435x310.jpg" /></div>
+            <div><img src="http://pipsum.com/435x310.jpg" /></div>
+            <div><img src="http://pipsum.com/435x310.jpg" /></div>
+        </div>
+    </div>
+    <script>
+        var glide = new Glide('.scrollme');
+        glide.start();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "glide.js",
+  "version": "1.0.0",
+  "description": "Smooth scrolling.",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rmitchellnet/glide.js.git"
+  },
+  "keywords": [
+    "smooth",
+    "scrolling"
+  ],
+  "author": "rmitchellnet@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rmitchellnet/glide.js/issues"
+  },
+  "homepage": "https://github.com/rmitchellnet/glide.js#readme"
+}
