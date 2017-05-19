@@ -1,0 +1,88 @@
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+    <script src="../src/glide.js"></script>
+    <style>
+        .container {
+            width: 100%;
+            position: relative;
+        }
+
+        .container .scrollme {
+            width: 100%;
+            background: lightblue; //transition: transform 0.8s cubic-bezier(.2,.62,.2,.94);
+        }
+
+        .container .scrollme div {
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="scrollme">
+            <div><img src="http://pipsum.com/435x310.jpg" /></div>
+            <div data-scroll-speed="10"><img src="http://pipsum.com/435x310.jpg" /></div>
+            <div><img src="http://pipsum.com/435x310.jpg" /></div>
+            <div><img src="http://pipsum.com/435x310.jpg" /></div>
+            <div><img src="http://pipsum.com/435x310.jpg" /></div>
+            <div><img src="http://pipsum.com/435x310.jpg" /></div>
+            <div><img src="http://pipsum.com/435x310.jpg" /></div>
+            <div><img src="http://pipsum.com/435x310.jpg" /></div>
+            <div><img src="http://pipsum.com/435x310.jpg" /></div>
+            <div><img src="http://pipsum.com/435x310.jpg" /></div>
+        </div>
+    </div>
+    <script>
+        window.onload = function () {
+            var glide = new Glide('.scrollme');
+            glide.start();
+
+            $.fn.moveIt = function () {
+                var $window = $(window);
+                var instances = [];
+
+                $(this).each(function () {
+                    instances.push(new moveItItem($(this)));
+                });
+
+                function parallaxOnScroll() {
+                    requestAnimationFrame(parallaxOnScroll);
+                    var scrollTop = window.scrollY;
+                    instances.forEach(function (inst) {
+                        inst.update(scrollTop);
+                    });
+                }
+                parallaxOnScroll();
+
+                /*window.onscroll = function () {
+                  var scrollTop = $window.scrollTop();
+                  instances.forEach(function (inst) {
+                    inst.update(scrollTop);
+                  });
+                }*/
+            }
+
+            var moveItItem = function (el) {
+                this.el = $(el);
+                this.speed = parseFloat(this.el.attr('data-scroll-speed'));
+            };
+
+            moveItItem.prototype.update = function (scrollTop) {
+                //var pos = scrollTop / this.speed;
+                var pos = (this.el.offset().top - scrollTop) / this.speed;
+                //this.el.css('transform', 'translateY(' + -pos + 'px)');
+                TweenMax.to(this.el, 2, {
+                    y: -pos,
+                    ease: Power4.easeOut
+                });
+            };
+            $('[data-scroll-speed]').moveIt();
+        };
+    </script>
+</body>
+
+</html>
