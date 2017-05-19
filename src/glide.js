@@ -77,7 +77,7 @@
             this.element.parentNode.style['height'] = this.element.clientHeight + 'px';
             this.options.custom(this, -window.scrollY);
         },
-        cancel: function () {
+        stop: function () {
             cancelAnimationFrame(this.scrollLoop);
         }
     };
