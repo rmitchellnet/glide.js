@@ -17,7 +17,7 @@ glide.start();
 
 # Advanced Usage
 
-## Disable On Mobile
+### Disable On Mobile
 
 Since mobile will already scroll smoothly, you can disable the smooth scroll using only CSS:
 
@@ -44,7 +44,7 @@ glide.stop();
 
 # Plugins
 
-## Greensock
+### Greensock
 
 Make sure Greensock is included before Glide. Plugins must be loaded before the core library.
 
